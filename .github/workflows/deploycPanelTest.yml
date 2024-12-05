@@ -3,7 +3,7 @@ name: Deploy to FTP Server
 on:
   push:
     branches:
-      - main  # Trigger on pushes to the 'main' branch
+      - main  # Trigger deployment on pushes to the 'main' branch
 
 jobs:
   deploy:
@@ -17,6 +17,6 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          ftp-server: ${{ secrets.SERVER }}
-          ftp-username: ${{ secrets.USERNAME }}  # Add FTP username
-          ftp-password: ${{ secrets.PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
